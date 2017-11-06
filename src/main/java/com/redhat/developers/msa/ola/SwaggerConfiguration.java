@@ -7,7 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
@@ -27,13 +26,14 @@ public class SwaggerConfiguration {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Ola microservices REST API")
-            .description("Operations that can be invoked in the ola microservices")
-            .contact(new Contact("Red Hat Developers", "http://developers.redhat.com", "developer@redhat.com"))
-            .license("Apache License Version 2.0")
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+            .title("Microservicio de API DEMO BANK Retail")
+            .description("Consultar operaciones al API del Banco Demo Reatil")
+//            .contact(new Contact("AN Global", "",/*"http://developers.redhat.com"*/ "paul.montoya@agsnasoft.com"))
+//            .license("Apache License Version 2.0")
+//            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .version("1.0.0")
             .build();
     }
+
 
 }

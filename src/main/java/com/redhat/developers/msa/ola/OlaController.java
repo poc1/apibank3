@@ -32,7 +32,7 @@ public class OlaController {
     //private HolaService holaService;
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.GET, value = "/retail", produces = "text/plain")
+    @RequestMapping(method = RequestMethod.GET, value = "/holaretail", produces = "text/plain")
     @ApiOperation("Hola retail")
     public String retail() {        
         return "Hola Retail";
