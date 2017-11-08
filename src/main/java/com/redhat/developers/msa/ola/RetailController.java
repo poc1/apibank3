@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dedhat.developers.model2.CustomerContactAddressesDetail;
@@ -47,10 +48,10 @@ public class RetailController {
 	 * @return
 	 */
 	@RequestMapping(value="/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Basic Data by CustomerId", response = CustomerDataRetail.class, produces = "application/json")
-	public CustomerDataRetail getCustomerDataById(@PathVariable final String customerid)
+	@ApiOperation(value = "Informacion Básica del Cliente", response = CustomerDataRetail.class, produces = "application/json")
+	public @ResponseBody CustomerDataRetail getBasicData(@PathVariable final String customerid)
 	{
-		return retailService.getCustomerDataById(customerid);
+		return retailService.getBasicData(customerid);
 	}
 	
 	
@@ -60,8 +61,8 @@ public class RetailController {
 	 * @return
 	 */
 	@RequestMapping(value="/{customerid}/addresses", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Address by CustomerId", response = CustomerContactAddressesDetail.class, produces = "application/json")
-	public Iterable<CustomerContactAddressesDetail> getCustomerContactAddress(@PathVariable final String customerid)
+	@ApiOperation(value = "Direcciones del Cliente", response = CustomerContactAddressesDetail.class, produces = "application/json")
+	public @ResponseBody Iterable<CustomerContactAddressesDetail> getCustomerContactAddress(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactAddress(customerid);
 	}
@@ -72,8 +73,8 @@ public class RetailController {
 	 * @return
 	 */
 	@RequestMapping(value="/{customerid}/phone_numbers", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Contact Phone by CustomerId", response = CustomerContactPhoneDetail.class, produces = "application/json")
-	public Iterable<CustomerContactPhoneDetail> getCustomerContactPhone(@PathVariable final String customerid)
+	@ApiOperation(value = "Teléfonos del Cliente", response = CustomerContactPhoneDetail.class, produces = "application/json")
+	public @ResponseBody Iterable<CustomerContactPhoneDetail> getCustomerContactPhone(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactPhone(customerid);
 	}
@@ -84,8 +85,8 @@ public class RetailController {
 	 * @return
 	 */
 	@RequestMapping(value="/{customerid}/media_addresses", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Media by CustomerId", response = CustomerContactMediaDetail.class, produces = "application/json")
-	public Iterable<CustomerContactMediaDetail> getCustomerContactMedia(@PathVariable final String customerid)
+	@ApiOperation(value = "Medios Electrónicos", response = CustomerContactMediaDetail.class, produces = "application/json")
+	public @ResponseBody Iterable<CustomerContactMediaDetail> getCustomerContactMedia(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactMedia(customerid);
 	}

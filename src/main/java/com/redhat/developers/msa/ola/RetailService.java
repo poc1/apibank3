@@ -47,7 +47,7 @@ public class RetailService {
 	
 	
 	// Informacion basica del cliente
-	public CustomerDataRetail getCustomerDataById(String customerId)
+	public CustomerDataRetail getBasicData(String customerId)
 	{
 		ListIterator<CustomerDataRetail> iterator =  customerDataRetailList.listIterator();
 		while(iterator.hasNext()) {
@@ -56,7 +56,7 @@ public class RetailService {
 			if(data.getCustomerId().equals(customerId))
 				return data;
 		}
-		return new CustomerDataRetail();		
+		return (CustomerDataRetail)null;
 	}
 	
 	
