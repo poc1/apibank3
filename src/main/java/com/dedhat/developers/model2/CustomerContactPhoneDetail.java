@@ -16,10 +16,8 @@ public class CustomerContactPhoneDetail {
 	private String contactIndicator;
 	private String contactDate;
 	private String observations;
-	private String ext1;
-	private String ext2;
-	private String ext3;
-	private String ext4;
+	private ExtensionNumbers extensionNumbers;
+	
 		
 			
 	public CustomerContactPhoneDetail() {}
@@ -27,8 +25,7 @@ public class CustomerContactPhoneDetail {
 	public CustomerContactPhoneDetail(String customerId, String phoneCategory, String phoneSequence,
 			String cellPhoneCompany, String phoneType, String phoneContactType, String phoneAreaCode,
 			String phoneNumber, String phoneRegistrationDate, String phoneUptateDate, String relatedAddress,
-			String contactIndicator, String contactDate, String observations, String ext1, String ext2, String ext3,
-			String ext4) {
+			String contactIndicator, String contactDate, String observations, ExtensionNumbers extensionNumbers) {
 		super();
 		this.customerId = customerId;
 		this.phoneCategory = phoneCategory;
@@ -44,10 +41,7 @@ public class CustomerContactPhoneDetail {
 		this.contactIndicator = contactIndicator;
 		this.contactDate = contactDate;
 		this.observations = observations;
-		this.ext1 = ext1;
-		this.ext2 = ext2;
-		this.ext3 = ext3;
-		this.ext4 = ext4;
+		this.extensionNumbers = extensionNumbers;
 	}
 	
 	public String getCustomerId() {
@@ -134,32 +128,14 @@ public class CustomerContactPhoneDetail {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getExt1() {
-		return ext1;
+
+	public ExtensionNumbers getExtensionNumbers() {
+		return extensionNumbers;
 	}
-	public void setExt1(String ext1) {
-		this.ext1 = ext1;
+
+	public void setExtensionNumbers(ExtensionNumbers extensionNumbers) {
+		this.extensionNumbers = extensionNumbers;
 	}
-	public String getExt2() {
-		return ext2;
-	}
-	public void setExt2(String ext2) {
-		this.ext2 = ext2;
-	}
-	public String getExt3() {
-		return ext3;
-	}
-	public void setExt3(String ext3) {
-		this.ext3 = ext3;
-	}
-	public String getExt4() {
-		return ext4;
-	}
-	public void setExt4(String ext4) {
-		this.ext4 = ext4;
-	}
-	
-	
-	
 
 }
+

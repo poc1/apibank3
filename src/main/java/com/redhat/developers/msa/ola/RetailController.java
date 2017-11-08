@@ -26,7 +26,6 @@ import com.dedhat.developers.model2.CustomerContactAddressesDetail;
 import com.dedhat.developers.model2.CustomerContactMediaDetail;
 import com.dedhat.developers.model2.CustomerContactPhoneDetail;
 import com.dedhat.developers.model2.CustomerDataRetail;
-import com.dedhat.developers.model2.CustomerDocumentDetail;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -42,38 +41,53 @@ public class RetailController {
 			this.retailService = retailService;
 	}
 	
-	@RequestMapping(value="/retail/basicdata/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Basic Data by CustomerId",response = CustomerDataRetail.class, produces = "application/json")
+	/**
+	 * Información básica del Cliente
+	 * @param customerid
+	 * @return
+	 */
+	@RequestMapping(value="/{customerid}", method=RequestMethod.GET)
+	@ApiOperation(value = "Get Customer Basic Data by CustomerId", response = CustomerDataRetail.class, produces = "application/json")
 	public CustomerDataRetail getCustomerDataById(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerDataById(customerid);
 	}
 	
-	@RequestMapping(value="/retail/address/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Address by CustomerId",response = CustomerContactAddressesDetail.class, produces = "application/json")
+	
+	/**
+	 * Direcciones del Cliente
+	 * @param customerid
+	 * @return
+	 */
+	@RequestMapping(value="/{customerid}/addresses", method=RequestMethod.GET)
+	@ApiOperation(value = "Get Customer Address by CustomerId", response = CustomerContactAddressesDetail.class, produces = "application/json")
 	public Iterable<CustomerContactAddressesDetail> getCustomerContactAddress(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactAddress(customerid);
 	}
 	
-	@RequestMapping(value="/retail/phone/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Contact Phone by CustomerId",response = CustomerContactPhoneDetail.class, produces = "application/json")
+	/**
+	 * Teléfonos del Cliente
+	 * @param customerid
+	 * @return
+	 */
+	@RequestMapping(value="/{customerid}/phone_numbers", method=RequestMethod.GET)
+	@ApiOperation(value = "Get Customer Contact Phone by CustomerId", response = CustomerContactPhoneDetail.class, produces = "application/json")
 	public Iterable<CustomerContactPhoneDetail> getCustomerContactPhone(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactPhone(customerid);
 	}
 	
-	@RequestMapping(value="/retail/media/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Media by CustomerId",response = CustomerContactMediaDetail.class, produces = "application/json")
+	/**
+	 * Medios electrónicos
+	 * @param customerid
+	 * @return
+	 */
+	@RequestMapping(value="/{customerid}/media_addresses", method=RequestMethod.GET)
+	@ApiOperation(value = "Get Customer Media by CustomerId", response = CustomerContactMediaDetail.class, produces = "application/json")
 	public Iterable<CustomerContactMediaDetail> getCustomerContactMedia(@PathVariable final String customerid)
 	{
 		return retailService.getCustomerContactMedia(customerid);
 	}
 	
-	@RequestMapping(value="/retail/document/{customerid}", method=RequestMethod.GET)
-	@ApiOperation(value = "Get Customer Documents by CustomerId",response = CustomerDocumentDetail.class, produces = "application/json")
-	public Iterable<CustomerDocumentDetail> getCustomerDocumentDetail(@PathVariable final String customerid)
-	{
-		return retailService.getCustomerDocumentDetail(customerid);
-	}
 }

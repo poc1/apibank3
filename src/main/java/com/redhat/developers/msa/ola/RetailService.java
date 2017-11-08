@@ -9,7 +9,7 @@ import com.dedhat.developers.model2.CustomerContactAddressesDetail;
 import com.dedhat.developers.model2.CustomerContactMediaDetail;
 import com.dedhat.developers.model2.CustomerContactPhoneDetail;
 import com.dedhat.developers.model2.CustomerDataRetail;
-import com.dedhat.developers.model2.CustomerDocumentDetail;
+import com.dedhat.developers.model2.ExtensionNumbers;
 
 @Service
 public class RetailService {
@@ -19,8 +19,7 @@ public class RetailService {
 	ArrayList<CustomerContactAddressesDetail> customerContactAddressesDetailList;
 	ArrayList<CustomerContactPhoneDetail> customerContactPhoneDetailList;
 	ArrayList<CustomerContactMediaDetail> customerContactMediaDetailList;
-	ArrayList<CustomerDocumentDetail> customerDocumentDetailList;
-	
+		
 
 	public RetailService() {
 		super();
@@ -32,25 +31,22 @@ public class RetailService {
 		// DOMICILIO
 		customerContactAddressesDetailList = new ArrayList<CustomerContactAddressesDetail>();
 		customerContactAddressesDetailList.add(new CustomerContactAddressesDetail("11111", "PRINCIPAL", "001", "OTROS", "NUM 26 120", "CALLE", "320", "4", "UNIVERSIDAD", "ZARAGOZA", "CASA - HABITACION", "COLONIA", "LAS AMERICAS SAN PABLO", "SANTIAGO DE QUERETARO", "QUERETARO", "QUERETARO", "AGUASCALIENTES MUNICIPIO DE", "00076121", "MEXICO", "DESHABITADO", "2015-06-02", "", "CALLE NUM 26 120 NUM 320 NUM INT 4, COLONIA LAS AMERICAS SAN PABLO, CP. 00076121, SANTIAGO DE QUERETARO, QUERETARO, QUERETARO", "2015-06-02", "2017-08-09"));
+		customerContactAddressesDetailList.add(new CustomerContactAddressesDetail("22222", "SECUNDARIO", "002", "OTROS DETALLES", "NUM 57 120", "CALLE 3", "320", "4", "UNIVERSIDAD", "ZARAGOZA", "CASA - HABITACION", "COLONIA", "LAS AMERICAS SAN PABLO", "SANTIAGO DE QUERETARO", "QUERETARO", "QUERETARO", "AGUASCALIENTES MUNICIPIO DE", "00076121", "MEXICO", "DESHABITADO", "2015-06-02", "", "CALLE NUM 26 120 NUM 320 NUM INT 4, COLONIA LAS AMERICAS SAN PABLO, CP. 00076121, SANTIAGO DE QUERETARO, QUERETARO, QUERETARO", "2015-06-02", "2017-08-09"));
 		
 		
 		// TELEFONOS
 		customerContactPhoneDetailList = new ArrayList<CustomerContactPhoneDetail>();
-		customerContactPhoneDetailList.add(new CustomerContactPhoneDetail("11111", "VIVIENDA", "001", "", "FIJO", "ENVIAR CORRESPONDENCIA", "222", "5731959", "2016-12-28", "2017-08-09", "001", "TELEFONO SIN INTENTO DE MARC", "2016-12-28", "", "44444", "66666", "77777", "88888"));
+		customerContactPhoneDetailList.add(new CustomerContactPhoneDetail("11111", "VIVIENDA", "001", "", "FIJO", "ENVIAR CORRESPONDENCIA", "222", "5731959", "2016-12-28", "2017-08-09", "001", "TELEFONO SIN INTENTO DE MARC", "2016-12-28", "", new ExtensionNumbers("44444", "66666", "77777", "88888") ));
 		
 		// MEDIA
 		customerContactMediaDetailList = new ArrayList<CustomerContactMediaDetail>();
 		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "Correo Electrónico", "1", "abregocristela@santander.com", "Inexistente", "Alta por Canal"));
+		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "ELE", "001", "ADOLFO_ACVS@HOTMAIL.COM", "020", ""));
 	
-		// DOCUMENTOS
-		customerDocumentDetailList = new ArrayList<CustomerDocumentDetail>();
-		customerDocumentDetailList.add(new CustomerDocumentDetail("11111", "CURP", "01", "AEGA661115HMCCND03", "20011-01-01", "2006-12-31", ""));
-		customerDocumentDetailList.add(new CustomerDocumentDetail("11111", "CODIGO DE CLIENTE", "01", "00020244", "2001-01-01", "2006-12-31", ""));
-		customerDocumentDetailList.add(new CustomerDocumentDetail("11111", "RFC", "01", "QUMU661115AM1", "2001-01-01", "2006-12-31", ""));
 	}
 	
 	
-	// get Customer Basic Data
+	// Informacion basica del cliente
 	public CustomerDataRetail getCustomerDataById(String customerId)
 	{
 		ListIterator<CustomerDataRetail> iterator =  customerDataRetailList.listIterator();
@@ -64,7 +60,7 @@ public class RetailService {
 	}
 	
 	
-	// get Customer Contact Address
+	// Domicilios del Cliente
 	public Iterable<CustomerContactAddressesDetail> getCustomerContactAddress(String customerId)
 	{
 		ArrayList<CustomerContactAddressesDetail> it = new ArrayList<CustomerContactAddressesDetail>();
@@ -80,7 +76,7 @@ public class RetailService {
 	}
 	
 	
-	// get Customer Contact Phone
+	// Telefonos del Cliente
 	public Iterable<CustomerContactPhoneDetail> getCustomerContactPhone(String customerId)
 	{
 		ArrayList<CustomerContactPhoneDetail> it = new ArrayList<CustomerContactPhoneDetail>();
@@ -96,7 +92,7 @@ public class RetailService {
 	}
 	
 	
-	// get Customer Contact Media
+	// Medios electrónicos
 	public Iterable<CustomerContactMediaDetail> getCustomerContactMedia(String customerId)
 	{
 		ArrayList<CustomerContactMediaDetail> it = new ArrayList<CustomerContactMediaDetail>();
@@ -111,22 +107,5 @@ public class RetailService {
 		return it;		
 	}
 	
-	// get Customer Contact Documents
-	public Iterable<CustomerDocumentDetail> getCustomerDocumentDetail(String customerId)
-	{
-		ArrayList<CustomerDocumentDetail> it = new ArrayList<CustomerDocumentDetail>();
-		ListIterator<CustomerDocumentDetail> iterator =  customerDocumentDetailList.listIterator();
-		while(iterator.hasNext()) {
-			
-			CustomerDocumentDetail data = iterator.next();
-			if(data.getCustomerId().equals(customerId)) {
-				it.add(data);
-			}
-		}
-		return it;		
-	}
-	
-	
-	
-	
+		
 }
