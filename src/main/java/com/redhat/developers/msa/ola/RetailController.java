@@ -17,7 +17,6 @@
 package com.redhat.developers.msa.ola;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,12 +31,10 @@ import com.dedhat.developers.model2.CustomerDocumentDetail;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api")
-//@Api(value="onlinestore", description="Retail Customer Operations")
+@RequestMapping("/retail")
 public class RetailController {
 
-    //@Autowired
-    //private HolaService holaService;
+
 	public final RetailService retailService;
 
 	@Autowired
@@ -45,14 +42,6 @@ public class RetailController {
 			this.retailService = retailService;
 	}
 	
-	@CrossOrigin
-    @RequestMapping(method = RequestMethod.GET, value = "/retail/holaretail", produces = "text/plain")
-    @ApiOperation("Hola retail")
-    public String retail() {        
-        return "Hola Retail";
-    }
-    
-    	
 	@RequestMapping(value="/retail/basicdata/{customerid}", method=RequestMethod.GET)
 	@ApiOperation(value = "Get Customer Basic Data by CustomerId",response = CustomerDataRetail.class, produces = "application/json")
 	public CustomerDataRetail getCustomerDataById(@PathVariable final String customerid)
