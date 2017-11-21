@@ -36,12 +36,12 @@ public class RetailService {
 		
 		// TELEFONOS
 		customerContactPhoneDetailList = new ArrayList<CustomerContactPhoneDetail>();
-		customerContactPhoneDetailList.add(new CustomerContactPhoneDetail("11111", "VIVIENDA", "001", "", "FIJO", "ENVIAR CORRESPONDENCIA", "222", "5731959", "2016-12-28", "2017-08-09", "001", "TELEFONO SIN INTENTO DE MARC", "2016-12-28", "", new ExtensionNumbers("44444", "66666", "77777", "88888") ));
+		customerContactPhoneDetailList.add(new CustomerContactPhoneDetail("11111", "VIVIENDA", "001", "TELCEL", "FIJO", "ENVIAR CORRESPONDENCIA", "222", "5731959", "2016-12-28", "2017-08-09", "001", "TELEFONO SIN INTENTO DE MARC", "2016-12-28", "", new ExtensionNumbers("44444", "66666", "77777", "88888") ));
 		
 		// MEDIA
 		customerContactMediaDetailList = new ArrayList<CustomerContactMediaDetail>();
-		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "Correo Electrónico", "1", "abregocristela@santander.com", "Inexistente", "Alta por Canal"));
-		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "ELE", "001", "ADOLFO_ACVS@HOTMAIL.COM", "020", ""));
+		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "CORREO ELECTRONICO", "1", "abregocristela@santander.com", "INEXISTENTE", "ALTA POR CANAL"));
+		customerContactMediaDetailList.add(new CustomerContactMediaDetail("11111", "", "CORREO ELECTRONICO", "2", "adolfo_acv@hotmail.com", "020", ""));
 	
 	}
 	
